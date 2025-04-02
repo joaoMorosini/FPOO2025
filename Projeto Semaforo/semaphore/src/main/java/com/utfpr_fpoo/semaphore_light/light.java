@@ -5,7 +5,7 @@ public interface light {
 
     void turnOn();
     void turnOff();
-
+    void teste();
     boolean isOn();
     boolean isOff();
     
