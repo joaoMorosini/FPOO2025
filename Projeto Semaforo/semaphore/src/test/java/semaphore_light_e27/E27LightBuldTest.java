@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import com.utfpr_fpoo.semaphore_light.Light;
 import com.utfpr_fpoo.semaphore_light.e27.E27LightBulb;
 
-public class E27LightBuldTest {
+class E27LightBuldTest {
     @Test
     void shouldTurnOn(){
         //given
