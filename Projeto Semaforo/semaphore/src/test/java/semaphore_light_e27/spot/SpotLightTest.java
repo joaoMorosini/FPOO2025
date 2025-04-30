@@ -15,7 +15,7 @@ class SpotLightTest {
     @Test
     void shouldTurnOn(){
         AbstractLightE27 light = new AbstractLightE27();
-        SpotLight spot = new SpotLight(null);
+        SpotLight spot = new SpotLight(null, null);
         spot.setLight(light);
 
         light.turnOff();
@@ -28,7 +28,7 @@ class SpotLightTest {
     @Test
     void shouldTurnOff(){
         AbstractLightE27 light = new AbstractLightE27();
-        SpotLight spot = new SpotLight(null);
+        SpotLight spot = new SpotLight(null, null);
         spot.setLight(light);
 
         light.turnOn();
@@ -40,7 +40,7 @@ class SpotLightTest {
     }
     @Test
     void shouldReturnCloneOfPosition(){
-        SpotLight spot = new SpotLight(null);
+        SpotLight spot = new SpotLight(null, null);
         spot.setLight(new E27LightBulb());
         final int xLeft = 20;
         final int yTop = 50;
@@ -54,7 +54,7 @@ class SpotLightTest {
     }
     @Test
     void shouldReturnCloneOfDimension(){
-        SpotLight spot = new SpotLight(null);
+        SpotLight spot = new SpotLight(null, null);
         spot.setLight(new E27LightBulb());
         final int widht = 20;
         final int height = 20;
