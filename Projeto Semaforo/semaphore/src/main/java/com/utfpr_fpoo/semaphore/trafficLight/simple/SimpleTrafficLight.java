@@ -11,9 +11,11 @@ import javax.imageio.ImageIO;
 
 import com.utfpr_fpoo.semaphore.light.e27.E27LightBulb;
 import com.utfpr_fpoo.semaphore.spot.SpotLight;
+import com.utfpr_fpoo.semaphore.trafficLight.TrafficLight;
+import com.utfpr_fpoo.semaphore.util.TurnOnOff;
 import com.utfpr_fpoo.semaphore.util.gui.Paintable;
 
-public class SimpleTrafficLight implements Paintable{
+public class SimpleTrafficLight implements Paintable, TrafficLight{
     private Point position = new Point(0, 0);
     private Dimension dimension = new Dimension(70, 180);
     private Image mask;
@@ -121,5 +123,20 @@ public class SimpleTrafficLight implements Paintable{
             this.yellow.paint(g);
             this.red.paint(g);
         }
+    }
+
+    @Override
+    public TurnOnOff spotGreen() {
+        return spotGreen();
+        }
+
+    @Override
+    public TurnOnOff spotYellow() {
+        return spotYellow();
+        }
+
+    @Override
+    public TurnOnOff spotRed() {
+        return spotRed();
     }
 }
