@@ -15,7 +15,8 @@ import com.utfpr_fpoo.semaphore.trafficLight.TrafficLight;
 import com.utfpr_fpoo.semaphore.util.TurnOnOff;
 import com.utfpr_fpoo.semaphore.util.gui.Paintable;
 
-public class SimpleTrafficLight implements Paintable, TrafficLight{
+public class SimpleTrafficLight implements Paintable, TrafficLight
+{
     private Point position = new Point(0, 0);
     private Dimension dimension = new Dimension(70, 180);
     private Image mask;
@@ -23,17 +24,19 @@ public class SimpleTrafficLight implements Paintable, TrafficLight{
     private SpotLight green;
     private SpotLight red;
 
-    private String currentRelativePath() {
+    private String currentRelativePath() 
+    {
         return '/' +
                 this.getClass()
-                        .getPackageName()
-                        .toString()
-                        .replace('.', '/')
+                    .getPackageName()
+                    .toString()
+                    .replace('.', '/')
                 +
                 '/';
     }
 
-    private SpotLight createSpot(String color) throws IOException {
+    private SpotLight createSpot(String color) throws IOException 
+    {
         final String path = currentRelativePath() + "img/";
         URL url;
 
@@ -47,12 +50,14 @@ public class SimpleTrafficLight implements Paintable, TrafficLight{
         return spot;
     }
 
-    public SimpleTrafficLight() throws IOException {
+    public SimpleTrafficLight() throws IOException 
+    {
         this.create();
         this.configurePositions();
     }
 
-    public SimpleTrafficLight(Point position, Dimension dimension) throws IOException {
+    public SimpleTrafficLight(Point position, Dimension dimension) throws IOException 
+    {
         this.position = position;
         this.dimension = dimension;
 
@@ -60,7 +65,8 @@ public class SimpleTrafficLight implements Paintable, TrafficLight{
         this.configurePositions();
     }
 
-    private void create() throws IOException {
+    private void create() throws IOException 
+    {
         this.green = createSpot("green");
         this.green.setLight(new E27LightBulb());
 
@@ -75,7 +81,9 @@ public class SimpleTrafficLight implements Paintable, TrafficLight{
         this.mask = ImageIO.read(url);
 
     }
-    private void configurePositions() {
+
+    private void configurePositions() 
+    {
         final int WIDTH = 50;
         final int HEIGHT = 50;
         final Dimension dimension = new Dimension(WIDTH, HEIGHT);
@@ -94,24 +102,31 @@ public class SimpleTrafficLight implements Paintable, TrafficLight{
         this.green.setDimension(dimension);
     }
 
-    public Point getPosition() {
+    public Point getPosition() 
+    {
         return new Point(this.position);
     }
 
-    public void setPosition(Point position) {
+    public void setPosition(Point position) 
+    {
         this.position = new Point(position);
     }
 
-    public Dimension getDimension() {
+    public Dimension getDimension() 
+    {
         return new Dimension(this.dimension);
     }
 
-    public void setDimension(Dimension dimension) {
+    public void setDimension(Dimension dimension) 
+    {
         this.dimension = new Dimension(dimension);
     }
+
     @Override
-    public void paint(Graphics g){
-        synchronized(g){
+    public void paint(Graphics g)
+    {
+        synchronized(g)
+        {
             int xLeft = this.position.x;
             int yTop = this.position.y;
             int width = this.dimension.width;
@@ -123,20 +138,24 @@ public class SimpleTrafficLight implements Paintable, TrafficLight{
             this.yellow.paint(g);
             this.red.paint(g);
         }
+
     }
 
     @Override
-    public TurnOnOff spotGreen() {
-        return spotGreen();
-        }
+    public TurnOnOff spotGreen() 
+    {
+        return this.green;
+    }
 
     @Override
-    public TurnOnOff spotYellow() {
-        return spotYellow();
-        }
+    public TurnOnOff spotYellow() 
+    {
+        return this.yellow;
+    }
 
     @Override
-    public TurnOnOff spotRed() {
-        return spotRed();
+    public TurnOnOff spotRed() 
+    {
+        return this.red;
     }
 }
