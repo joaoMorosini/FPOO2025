@@ -30,7 +30,7 @@ public class AppSimpleTrafficLight {
     Timer timer = new Timer();
     timer.scheduleAtFixedRate(new TimerTask() {
 
-            private int i =0;
+            private int i = 0;
 
             @Override
                 public void run(){
