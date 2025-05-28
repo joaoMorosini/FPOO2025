@@ -6,7 +6,6 @@ import com.utfpr_fpoo.semaphore.util.TurnOnOff;
 
 public class SimpleTrafficLightControl implements TrafficLightControl
 {
-    private final TrafficLight trafficLight;
     private final TurnOnOff green, yellow, red;
 
     private State state = State.OFF;
@@ -15,7 +14,6 @@ public class SimpleTrafficLightControl implements TrafficLightControl
     
     public SimpleTrafficLightControl(TrafficLight trafficLight) 
     {
-        this.trafficLight = trafficLight;
         this.green = trafficLight.spotGreen();
         this.yellow = trafficLight.spotYellow();
         this.red = trafficLight.spotRed();
