@@ -3,10 +3,10 @@ package appTest;
 import java.net.URL;
 
 import javax.swing.ImageIcon;
-import javax.swing.text.TabExpander;
 
 import com.utfpr.fpoo.ticTacToe.gui.MainWindow;
 import com.utfpr.fpoo.ticTacToe.gui.Table;
+
 
 public class AppBackgroundTest {
     static ImageIcon loadImage(String pathWithFileName) {
@@ -24,6 +24,6 @@ public class AppBackgroundTest {
 
         icon = loadImage(path + "tic-tac-toe.png");
         Table table = new Table(50, 50, 200, 200, icon);
-        window.add(table);
+       // window.add(table);
     }
 }

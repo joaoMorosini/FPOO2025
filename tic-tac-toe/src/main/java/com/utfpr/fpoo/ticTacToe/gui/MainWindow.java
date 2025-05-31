@@ -1,5 +1,6 @@
 package com.utfpr.fpoo.ticTacToe.gui;
 
+
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.MouseListener;
@@ -14,6 +15,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
+
+import com.utfpr.fpoo.ticTacToe.component.Button;
 
 public class MainWindow
 {
@@ -49,9 +52,9 @@ public class MainWindow
     	this.setBackground(new ImageIcon(url));
     }
     
-    public void add(Paintable paintable)
+    public void add(Button button)
     {
-        panel.add(paintable);
+        panel.add(button);
     }
 
     public void remove(Paintable paintable)
