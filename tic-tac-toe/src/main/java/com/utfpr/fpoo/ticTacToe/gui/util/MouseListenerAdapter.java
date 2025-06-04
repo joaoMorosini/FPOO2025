@@ -3,7 +3,7 @@ package com.utfpr.fpoo.ticTacToe.gui.util;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public abstract class MouseClickAdapter implements MouseListener{
+public abstract class MouseListenerAdapter implements MouseListener{
 
     @Override
     public void mouseClicked(MouseEvent e) {
