@@ -7,7 +7,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionAdapter;
 import java.awt.event.MouseMotionListener;
 
-import javax.swing.ImageIcon;
+
 
 import com.utfpr.fpoo.ticTacToe.gui.Paintable;
 import com.utfpr.fpoo.ticTacToe.gui.util.MouseListenerAdapter;
@@ -55,10 +55,8 @@ public MouseListener mouseListener() {
 	
 			public void mouseClicked( MouseEvent me ) {
 				
-				if( !isOver( me.getPoint()))
-					return;
-				System.out.println("oieee!");
-				
+				if(isOver( me.getPoint()))
+				   onMouseClick(me);
 				}
 			};
 
@@ -85,7 +83,9 @@ public MouseListener mouseListener() {
 				(point.y > yTop && point.y < yBotton) );
 	}
 
-    
+    protected void onMouseClick(MouseEvent me){
+
+    }
   
     
 }

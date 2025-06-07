@@ -16,7 +16,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
-import com.utfpr.fpoo.ticTacToe.component.Button;
+import com.utfpr.fpoo.ticTacToe.component.button.Button;
 
 public class MainWindow
 {
