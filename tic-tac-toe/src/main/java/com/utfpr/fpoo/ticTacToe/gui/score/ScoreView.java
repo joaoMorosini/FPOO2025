@@ -9,51 +9,46 @@ import javax.swing.ImageIcon;
 
 
 import java.awt.Graphics;
+
+
 public class ScoreView extends AbstractComponent {
 
-
-    private ReadOnlyScoreModel scoreModel;
-    private TextButton scoreX;
-    private TextButton scoreO;
-    private ImageIcon background;
-
-    public ScoreView(int x, int y, int width, int height, ReadOnlyScoreModel scoreModel){
-
-        super(x, y, width, height);
-        this.scoreModel = scoreModel;
-
-      
-        this.scoreX = new TextButton(x + 10, y + 10, width / 2 - 20, height - 20);
-        this.scoreX.setText("X: 0");
-        this.scoreO = new TextButton(x + width / 2 + 10, y + 10, width / 2 - 20, height - 20);
-        this.scoreO.setText("O: 0");
-
-        refresh();
-    }
-
-    public void setBackground(ImageIcon background) {
-        this.background = background;
-    }
-
-    private void updateScores() {
-
-        this.scoreX.setText("X: " + scoreModel.scoreX());
-        this.scoreO.setText("O: " + scoreModel.scoreO());
-    }
-
-
-    public void refresh() {
-        updateScores();
-    }
-
-    @Override
-    public void paint(Graphics g) {
-        if (background != null) {
-            g.drawImage(background.getImage(), position.x, position.y, width(), height(), null);
-        }
-        refresh();
-        scoreX.paint(g);
-        scoreO.paint(g);
-    }
-    
+	TextButton buttonX = new TextButton();
+	TextButton buttonO = new TextButton();
+	ImageIcon background;
+	ReadOnlyScoreModel scoreModel;
+	
+	public ScoreView(int x, int y, int width, int height, ReadOnlyScoreModel scoreModel) {
+		
+		super(x, y, width, height);
+		this.scoreModel = scoreModel;
+		
+		int btnWidth  = ((width-20) / 2 );
+		int btnHeight = ((height/2) - 10);
+		buttonX.setSize(btnWidth, btnHeight);
+		buttonO.setSize(btnWidth, btnHeight);
+		
+		int btnX = x + 5;
+		int btnY  = y + height/2;
+		buttonO.setPosition(btnX, btnY);
+		buttonX.setPosition(btnX + btnWidth + 10, btnY);
+	}
+	
+	public void setBackground(ImageIcon icon) {
+		background = icon;
+	}
+	
+	@Override
+	public void paint(Graphics g) {
+		
+		g.drawImage(background.getImage(),
+				    position.x, position.y,
+				    width(), height(), null);
+		
+		buttonX.setText(""+scoreModel.scoreX());
+		buttonO.setText(""+scoreModel.scoreO());
+		
+		buttonX.paint(g);
+		buttonO.paint(g);
+	}
 }

@@ -41,7 +41,7 @@ public class MainWindow
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
-        timer.scheduleAtFixedRate(repaintTask, 0, 500);
+        timer.scheduleAtFixedRate(repaintTask, 0, 30);
     }
     
     public void setBackground(ImageIcon icon) {
@@ -52,9 +52,9 @@ public class MainWindow
     	this.setBackground(new ImageIcon(url));
     }
     
-    public void add(Button button)
+    public void add(Paintable paintable)
     {
-        panel.add(button);
+        panel.add(paintable);
     }
 
     public void remove(Paintable paintable)
@@ -92,7 +92,7 @@ class PaintablePanel extends JPanel
 	
 	public void setBackground(ImageIcon icon) {
 		this.background = icon;
-		super.repaint();
+
 	}
 	
 	private Set<Paintable> paintables = new HashSet<>();
@@ -100,13 +100,13 @@ class PaintablePanel extends JPanel
     public void add(Paintable paintable)
     {
         paintables.add(paintable);
-        super.repaint();
+  
     }
 
     public void remove(Paintable paintable)
     {
         paintables.remove(paintable);
-        super.repaint();
+
     }
 
     @Override
@@ -125,5 +125,5 @@ class PaintablePanel extends JPanel
     	
     	for(Paintable paintable : paintables)
             paintable.paint(g);
-    }
+  }
 }
